@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="釣りマップ">
+<title>バス釣りショアマップ</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #555;
+    --bar: #f2f4f5;
+    --line: #d0d4d8;
+    --green: #2e9d4a;
+    --yellow: #e0b000;
+    --red: #d63a3a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16191c;
+      --fg: #eceff1;
+      --muted: #aab2b8;
+      --bar: #22272b;
+      --line: #3a4248;
+    }
+  }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; font-size: 17px; }
+  #bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--bar);
+    border-bottom: 1px solid var(--line); padding: calc(env(safe-area-inset-top) + 8px) 16px 8px;
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  #lake { font-size: 17px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--bg); color: var(--fg); }
+  #legend { display: flex; gap: 10px; font-size: 14px; color: var(--muted); flex-wrap: wrap; }
+  .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 3px;
+    vertical-align: -1px; border: 1px solid #0003; }
+  #map { position: fixed; left: 0; right: 0; bottom: 0; top: var(--bar-h, 56px); }
+  #msg { position: fixed; left: 16px; right: 16px; bottom: calc(env(safe-area-inset-bottom) + 24px);
+    z-index: 1000; background: var(--bar); border: 1px solid var(--line); border-radius: 10px;
+    padding: 10px 12px; font-size: 15px; display: none; }
+  .leaflet-popup-content { font-size: 16px; line-height: 1.5; margin: 12px 14px; }
+  .leaflet-popup-content h3 { margin: 0 0 6px; font-size: 18px; }
+  .leaflet-popup-content dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; }
+  .leaflet-popup-content dt { font-weight: bold; white-space: nowrap; }
+  .leaflet-popup-content dd { margin: 0; word-break: break-all; }
+  .warn { color: var(--red); font-weight: bold; }
+  .unk { color: #888; }
+</style>
+</head>
+<body>
+<div id="bar">
+  <select id="lake" aria-label="湖を選ぶ"></select>
+  <div id="legend">
+    <span><span class="dot" style="background:var(--green)"></span>公式/複数で確認</span>
+    <span><span class="dot" style="background:var(--yellow)"></span>情報1件のみ</span>
+    <span><span class="dot" style="background:var(--red)"></span>注意あり</span>
+  </div>
+</div>
+<div id="map"></div>
+<div id="msg"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// CSV（ダブルクォート対応）を読み、1行目の見出しをキーにしたオブジェクトの配列にする
+function parseCSV(text) {
+  const rows = [];
+  let row = [], field = '', q = false;
+  text = text.replace(/^﻿/, '');
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) {
+      if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+      else if (c === '"') q = false;
+      else field += c;
+    } else if (c === '"') q = true;
+    else if (c === ',') { row.push(field); field = ''; }
+    else if (c === '\n' || c === '\r') {
+      if (c === '\r' && text[i + 1] === '\n') i++;
+      row.push(field); field = '';
+      if (row.some(v => v !== '')) rows.push(row);
+      row = [];
+    } else field += c;
+  }
+  row.push(field);
+  if (row.some(v => v !== '')) rows.push(row);
+  const head = rows.shift() || [];
+  return rows.map(r => Object.fromEntries(head.map((h, i) => [h.trim(), (r[i] || '').trim()])));
+}
+
+// ピンの色のルール（tools/build_kml.py と同じ）
+// 注意あり → 赤 ／ 公式で確認・複数で一致 → 緑 ／ それ以外 → 黄
+const NO_CAUTION = ['', '未確認', 'なし', '特になし'];
+const COLORS = { red: '#d63a3a', green: '#2e9d4a', yellow: '#e0b000' };
+function hasCaution(s) { return !NO_CAUTION.includes(s['注意'] || ''); }
+function pinColor(s) {
+  if (hasCaution(s)) return 'red';
+  if (['公式で確認', '複数で一致'].includes(s['確かさ'])) return 'green';
+  return 'yellow';
+}
+
+function esc(s) {
+  return s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function show(v) {
+  return v ? esc(v) : '<span class="unk">未確認</span>';
+}
+
+function popupHTML(s) {
+  const urls = (s['情報元URL'] || '').split('|').map(u => u.trim()).filter(Boolean);
+  const links = urls.map((u, i) => `<a href="${esc(u)}" target="_blank" rel="noopener">情報元${urls.length > 1 ? i + 1 : ''}</a>`).join(' / ');
+  const caution = hasCaution(s) ? `<span class="warn">${esc(s['注意'])}</span>` : show(s['注意']);
+  return `<h3>${esc(s['名前'])}</h3><dl>
+    <dt>足場</dt><dd>${show(s['足場'])}</dd>
+    <dt>駐車場</dt><dd>${show(s['駐車場'])}</dd>
+    <dt>トイレ</dt><dd>${show(s['トイレ'])}</dd>
+    <dt>バス停</dt><dd>${show(s['最寄りバス停'])}</dd>
+    <dt>注意</dt><dd>${caution}</dd>
+    <dt>情報元</dt><dd>${links || '<span class="unk">なし</span>'}</dd>
+    <dt>確認日</dt><dd>${show(s['確認日'])}</dd>
+    <dt>確かさ</dt><dd>${show(s['確かさ'])}</dd>
+  </dl>`;
+}
+
+const map = L.map('map', { zoomControl: true });
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+const layer = L.layerGroup().addTo(map);
+const msg = document.getElementById('msg');
+let lakes = [];
+
+function fitBar() {
+  document.documentElement.style.setProperty('--bar-h', document.getElementById('bar').offsetHeight + 'px');
+  map.invalidateSize();
+}
+
+async function loadLake(lake) {
+  layer.clearLayers();
+  msg.style.display = 'none';
+  map.setView(lake.center, lake.zoom);
+  const res = await fetch(lake.csv, { cache: 'no-cache' });
+  const spots = parseCSV(await res.text());
+  const bounds = [];
+  for (const s of spots) {
+    const lat = parseFloat(s['緯度']), lng = parseFloat(s['経度']);
+    if (!isFinite(lat) || !isFinite(lng)) continue;
+    const c = pinColor(s);
+    L.circleMarker([lat, lng], {
+      radius: 11, weight: 2, color: '#fff', fillColor: COLORS[c], fillOpacity: 0.95, className: 'pin pin-' + c
+    }).bindPopup(popupHTML(s), { maxWidth: 320 }).addTo(layer);
+    bounds.push([lat, lng]);
+  }
+  if (bounds.length) map.fitBounds(bounds, { padding: [30, 30], maxZoom: 15 });
+  else { msg.textContent = 'この湖のスポットはまだ登録されていません。'; msg.style.display = 'block'; }
+}
+
+(async () => {
+  lakes = await (await fetch('data/lakes.json', { cache: 'no-cache' })).json();
+  const sel = document.getElementById('lake');
+  lakes.forEach(l => sel.add(new Option(l.name, l.id)));
+  const saved = (() => { try { return localStorage.getItem('lake'); } catch (e) { return null; } })();
+  if (saved && lakes.some(l => l.id === saved)) sel.value = saved;
+  sel.onchange = () => {
+    try { localStorage.setItem('lake', sel.value); } catch (e) {}
+    loadLake(lakes.find(l => l.id === sel.value));
+  };
+  fitBar();
+  window.addEventListener('resize', fitBar);
+  loadLake(lakes.find(l => l.id === sel.value));
+})();
+</script>
+</body>
+</html>
