@@ -1,2 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>津久井湖 ショアスポット</name><Style id="red"><IconStyle><color>ff3a3ad6</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style><Style id="green"><IconStyle><color>ff4a9d2e</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style><Style id="yellow"><IconStyle><color>ff00b0e0</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style></Document></kml>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>津久井湖 ショアスポット</name><Style id="red"><IconStyle><color>ff3a3ad6</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style><Style id="green"><IconStyle><color>ff4a9d2e</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style><Style id="yellow"><IconStyle><color>ff00b0e0</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/wht-blank.png</href></Icon></IconStyle></Style><Placemark><name>三井大橋下（西側）</name><description>足場: 急斜面だが所々に平らな足場あり。駐車場から岸への下りはきつい。増水時は釣り場が水没する
+駐車場: 三井大橋を東から西へ渡ってすぐ左の無料駐車場（台数・利用時間は未確認）
+トイレ: なし（近くでは城山公園・津久井又野公園にあり）
+最寄りバス停: 三井地域センター前（直線で約400m・歩く道は未確認）
+注意: 未確認
+情報元URL: https://tsuribaannai.com/undermitsuibridge/|https://heat-hayabusa.com/2019/08/12/maki-2/|https://www.okappanon.com/entry/point-tsukuiko
+確認日: 2026-10-05
+確かさ: 複数で一致</description><styleUrl>#green</styleUrl><ExtendedData><Data name="足場"><value>急斜面だが所々に平らな足場あり。駐車場から岸への下りはきつい。増水時は釣り場が水没する</value></Data><Data name="駐車場"><value>三井大橋を東から西へ渡ってすぐ左の無料駐車場（台数・利用時間は未確認）</value></Data><Data name="トイレ"><value>なし（近くでは城山公園・津久井又野公園にあり）</value></Data><Data name="最寄りバス停"><value>三井地域センター前（直線で約400m・歩く道は未確認）</value></Data><Data name="注意"><value>未確認</value></Data><Data name="情報元URL"><value>https://tsuribaannai.com/undermitsuibridge/|https://heat-hayabusa.com/2019/08/12/maki-2/|https://www.okappanon.com/entry/point-tsukuiko</value></Data><Data name="確認日"><value>2026-10-05</value></Data><Data name="確かさ"><value>複数で一致</value></Data></ExtendedData><Point><coordinates>139.26639,35.58957,0</coordinates></Point></Placemark><Placemark><name>三井大橋横 ヒナダン</name><description>足場: 二段の石垣の上から。足元から急に深くなる
+駐車場: 三井大橋西側の無料駐車場（三井大橋下（西側）と同じ）
+トイレ: なし
+最寄りバス停: 三井地域センター前（直線で約400m・歩く道は未確認）
+注意: 駐車場から湖面ぞいに回る道は危険（情報元に「初心者は通らないほうがいい」とあり）
+情報元URL: https://tsuribaannai.com/hinadan/
+確認日: 2026-10-05
+確かさ: 釣りブログなど1件</description><styleUrl>#red</styleUrl><ExtendedData><Data name="足場"><value>二段の石垣の上から。足元から急に深くなる</value></Data><Data name="駐車場"><value>三井大橋西側の無料駐車場（三井大橋下（西側）と同じ）</value></Data><Data name="トイレ"><value>なし</value></Data><Data name="最寄りバス停"><value>三井地域センター前（直線で約400m・歩く道は未確認）</value></Data><Data name="注意"><value>駐車場から湖面ぞいに回る道は危険（情報元に「初心者は通らないほうがいい」とあり）</value></Data><Data name="情報元URL"><value>https://tsuribaannai.com/hinadan/</value></Data><Data name="確認日"><value>2026-10-05</value></Data><Data name="確かさ"><value>釣りブログなど1件</value></Data></ExtendedData><Point><coordinates>139.26537,35.58907,0</coordinates></Point></Placemark><Placemark><name>三井大橋下（東側）</name><description>足場: 岸の傾斜がかなり急で、橋の真下までは行けない。中村ボート側から岩だらけの斜面（中村台地）を横切って行く
+駐車場: 中村ボート近くの公衆トイレ前の駐車スペース（5〜6台）
+トイレ: 駐車スペース奥に公衆トイレ
+最寄りバス停: 久保入口（直線で約330m・歩く道は未確認）
+注意: 岩場を横切る道で足場が悪い
+情報元URL: https://tsuribaannai.com/undermitsuibridgeeast/
+確認日: 2026-10-05
+確かさ: 釣りブログなど1件</description><styleUrl>#red</styleUrl><ExtendedData><Data name="足場"><value>岸の傾斜がかなり急で、橋の真下までは行けない。中村ボート側から岩だらけの斜面（中村台地）を横切って行く</value></Data><Data name="駐車場"><value>中村ボート近くの公衆トイレ前の駐車スペース（5〜6台）</value></Data><Data name="トイレ"><value>駐車スペース奥に公衆トイレ</value></Data><Data name="最寄りバス停"><value>久保入口（直線で約330m・歩く道は未確認）</value></Data><Data name="注意"><value>岩場を横切る道で足場が悪い</value></Data><Data name="情報元URL"><value>https://tsuribaannai.com/undermitsuibridgeeast/</value></Data><Data name="確認日"><value>2026-10-05</value></Data><Data name="確かさ"><value>釣りブログなど1件</value></Data></ExtendedData><Point><coordinates>139.26836,35.59039,0</coordinates></Point></Placemark><Placemark><name>中村ボート横</name><description>足場: 岩礁帯と流木のある浅場
+駐車場: 中村ボート近くの公衆トイレ前の駐車スペース（5〜6台・平日でもほぼ満車）。中村ボートの駐車場はボート利用者用
+トイレ: 駐車スペース奥に公衆トイレ
+最寄りバス停: 久保入口（直線で約300m・歩く道は未確認）
+注意: ボート店の施設を通らないと行けない（ボート店の敷地）
+情報元URL: https://tsuribaannai.com/nexttonakamuraboat/|https://tsuriba.net/2019/01/21/%E6%B4%A5%E4%B9%85%E4%BA%95%E6%B9%96%E3%83%90%E3%82%B9%E9%87%A3%E3%82%8A%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%889%E9%81%B8%EF%BC%81%E3%80%80%E6%94%BB%E7%95%A5%E6%B3%95%E3%82%84%E3%81%8A%E3%81%99%E3%81%99/
+確認日: 2026-10-05
+確かさ: 複数で一致</description><styleUrl>#red</styleUrl><ExtendedData><Data name="足場"><value>岩礁帯と流木のある浅場</value></Data><Data name="駐車場"><value>中村ボート近くの公衆トイレ前の駐車スペース（5〜6台・平日でもほぼ満車）。中村ボートの駐車場はボート利用者用</value></Data><Data name="トイレ"><value>駐車スペース奥に公衆トイレ</value></Data><Data name="最寄りバス停"><value>久保入口（直線で約300m・歩く道は未確認）</value></Data><Data name="注意"><value>ボート店の施設を通らないと行けない（ボート店の敷地）</value></Data><Data name="情報元URL"><value>https://tsuribaannai.com/nexttonakamuraboat/|https://tsuriba.net/2019/01/21/%E6%B4%A5%E4%B9%85%E4%BA%95%E6%B9%96%E3%83%90%E3%82%B9%E9%87%A3%E3%82%8A%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%889%E9%81%B8%EF%BC%81%E3%80%80%E6%94%BB%E7%95%A5%E6%B3%95%E3%82%84%E3%81%8A%E3%81%99%E3%81%99/</value></Data><Data name="確認日"><value>2026-10-05</value></Data><Data name="確かさ"><value>複数で一致</value></Data></ExtendedData><Point><coordinates>139.27031,35.58908,0</coordinates></Point></Placemark><Placemark><name>串川放水路</name><description>足場: 足場はあまり広くない。少人数向け
+駐車場: 津久井湖観光センターの小型車専用駐車場（無料）
+トイレ: 津久井湖観光センター／中村ボート近くの公衆トイレ
+最寄りバス停: 小網（直線で約490m・歩く道は未確認）
+注意: 放水口そのものは立ち入り禁止
+情報元URL: https://tsuribaannai.com/kushikawawateroutlet/|https://tsuriba.net/2019/01/21/%E6%B4%A5%E4%B9%85%E4%BA%95%E6%B9%96%E3%83%90%E3%82%B9%E9%87%A3%E3%82%8A%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%889%E9%81%B8%EF%BC%81%E3%80%80%E6%94%BB%E7%95%A5%E6%B3%95%E3%82%84%E3%81%8A%E3%81%99%E3%81%99/
+確認日: 2026-10-05
+確かさ: 複数で一致</description><styleUrl>#red</styleUrl><ExtendedData><Data name="足場"><value>足場はあまり広くない。少人数向け</value></Data><Data name="駐車場"><value>津久井湖観光センターの小型車専用駐車場（無料）</value></Data><Data name="トイレ"><value>津久井湖観光センター／中村ボート近くの公衆トイレ</value></Data><Data name="最寄りバス停"><value>小網（直線で約490m・歩く道は未確認）</value></Data><Data name="注意"><value>放水口そのものは立ち入り禁止</value></Data><Data name="情報元URL"><value>https://tsuribaannai.com/kushikawawateroutlet/|https://tsuriba.net/2019/01/21/%E6%B4%A5%E4%B9%85%E4%BA%95%E6%B9%96%E3%83%90%E3%82%B9%E9%87%A3%E3%82%8A%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%889%E9%81%B8%EF%BC%81%E3%80%80%E6%94%BB%E7%95%A5%E6%B3%95%E3%82%84%E3%81%8A%E3%81%99%E3%81%99/</value></Data><Data name="確認日"><value>2026-10-05</value></Data><Data name="確かさ"><value>複数で一致</value></Data></ExtendedData><Point><coordinates>139.26386,35.58744,0</coordinates></Point></Placemark><Placemark><name>中沢ワンド</name><description>足場: 手前は急斜面で水深があり滑りやすい（ライフジャケット推奨と情報元にあり）
+駐車場: 県立津久井湖城山公園 水の苑地駐車場（無料・65台・8:00〜19:00・19時に閉門）
+トイレ: 水の苑地にあり
+最寄りバス停: 中沢（直線で約400m）／津久井湖観光センター前（直線で約410m）
+注意: 2024年に崖崩れで陸からの入口がバリケード封鎖・立入禁止（今はボートのみ）。公園のルールで園内での動物の捕獲は禁止
+情報元URL: https://tsuribaannai.com/nakazawacove/|https://riversidedepression.com/archives/3197|https://www.kanagawa-park.or.jp/tsukuikoshiroyama/access.html|https://www.kanagawa-park.or.jp/tsukuikoshiroyama/riyou.html
+確認日: 2026-10-05
+確かさ: 複数で一致</description><styleUrl>#red</styleUrl><ExtendedData><Data name="足場"><value>手前は急斜面で水深があり滑りやすい（ライフジャケット推奨と情報元にあり）</value></Data><Data name="駐車場"><value>県立津久井湖城山公園 水の苑地駐車場（無料・65台・8:00〜19:00・19時に閉門）</value></Data><Data name="トイレ"><value>水の苑地にあり</value></Data><Data name="最寄りバス停"><value>中沢（直線で約400m）／津久井湖観光センター前（直線で約410m）</value></Data><Data name="注意"><value>2024年に崖崩れで陸からの入口がバリケード封鎖・立入禁止（今はボートのみ）。公園のルールで園内での動物の捕獲は禁止</value></Data><Data name="情報元URL"><value>https://tsuribaannai.com/nakazawacove/|https://riversidedepression.com/archives/3197|https://www.kanagawa-park.or.jp/tsukuikoshiroyama/access.html|https://www.kanagawa-park.or.jp/tsukuikoshiroyama/riyou.html</value></Data><Data name="確認日"><value>2026-10-05</value></Data><Data name="確かさ"><value>複数で一致</value></Data></ExtendedData><Point><coordinates>139.2801,35.58999,0</coordinates></Point></Placemark><Placemark><name>又野送気所前（名手橋）</name><description>足場: 減水時だけ名手橋下〜ポンプ場下で岸に立てる
+駐車場: 津久井又野公園の無料駐車場（少し歩く・8:00〜22:00）
+トイレ: 津久井又野公園の管理棟にあり
+最寄りバス停: 尾崎記念館（直線で約720m・歩く道は未確認）
+注意: 名手橋周辺は駐車禁止・車の通りが多く危ない
+情報元URL: https://tsuribaannai.com/infrontoftheatanoairsupplystation/|https://tsuriba.net/2019/01/21/%E6%B4%A5%E4%B9%85%E4%BA%95%E6%B9%96%E3%83%90%E3%82%B9%E9%87%A3%E3%82%8A%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%889%E9%81%B8%EF%BC%81%E3%80%80%E6%94%BB%E7%95%A5%E6%B3%95%E3%82%84%E3%81%8A%E3%81%99%E3%81%99/|https://www.city.sagamihara.kanagawa.jp/_res/projects/default_project/_page_/001/033/885/r05.pdf
+確認日: 2026-10-05
+確かさ: 複数で一致</description><styleUrl>#red</styleUrl><ExtendedData><Data name="足場"><value>減水時だけ名手橋下〜ポンプ場下で岸に立てる</value></Data><Data name="駐車場"><value>津久井又野公園の無料駐車場（少し歩く・8:00〜22:00）</value></Data><Data name="トイレ"><value>津久井又野公園の管理棟にあり</value></Data><Data name="最寄りバス停"><value>尾崎記念館（直線で約720m・歩く道は未確認）</value></Data><Data name="注意"><value>名手橋周辺は駐車禁止・車の通りが多く危ない</value></Data><Data name="情報元URL"><value>https://tsuribaannai.com/infrontoftheatanoairsupplystation/|https://tsuriba.net/2019/01/21/%E6%B4%A5%E4%B9%85%E4%BA%95%E6%B9%96%E3%83%90%E3%82%B9%E9%87%A3%E3%82%8A%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%889%E9%81%B8%EF%BC%81%E3%80%80%E6%94%BB%E7%95%A5%E6%B3%95%E3%82%84%E3%81%8A%E3%81%99%E3%81%99/|https://www.city.sagamihara.kanagawa.jp/_res/projects/default_project/_page_/001/033/885/r05.pdf</value></Data><Data name="確認日"><value>2026-10-05</value></Data><Data name="確かさ"><value>複数で一致</value></Data></ExtendedData><Point><coordinates>139.24549,35.5999,0</coordinates></Point></Placemark><Placemark><name>旧道志橋周辺（道志川）</name><description>足場: 満水時だけ釣り場になる（減水期は川になる）。ヘラブナ釣り台のような釣り座が3つほどある
+駐車場: 整地された無料駐車スペース（約10台）
+トイレ: なし
+最寄りバス停: 阿津／道志橋（どちらも直線で約850m・歩く道は未確認）
+注意: 未確認
+情報元URL: https://tsuribaannai.com/aroundtheolddoshibridge/
+確認日: 2026-10-05
+確かさ: 釣りブログなど1件</description><styleUrl>#yellow</styleUrl><ExtendedData><Data name="足場"><value>満水時だけ釣り場になる（減水期は川になる）。ヘラブナ釣り台のような釣り座が3つほどある</value></Data><Data name="駐車場"><value>整地された無料駐車スペース（約10台）</value></Data><Data name="トイレ"><value>なし</value></Data><Data name="最寄りバス停"><value>阿津／道志橋（どちらも直線で約850m・歩く道は未確認）</value></Data><Data name="注意"><value>未確認</value></Data><Data name="情報元URL"><value>https://tsuribaannai.com/aroundtheolddoshibridge/</value></Data><Data name="確認日"><value>2026-10-05</value></Data><Data name="確かさ"><value>釣りブログなど1件</value></Data></ExtendedData><Point><coordinates>139.21664,35.59239,0</coordinates></Point></Placemark></Document></kml>
